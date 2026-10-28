@@ -1,0 +1,7 @@
+// 公共构建使用独立身份；维护者的本地覆盖不会进入 Git。
+FLOWDECK_BUNDLE_ID = org.flowdeck.app
+FLOWDECK_APP_GROUP = group.$(FLOWDECK_BUNDLE_ID)
+FLOWDECK_KEYCHAIN_SERVICE = $(FLOWDECK_BUNDLE_ID)
+FLOWDECK_URL_SCHEME = flowdeck
+DEVELOPMENT_TEAM =
+#include? "Local.xcconfig"

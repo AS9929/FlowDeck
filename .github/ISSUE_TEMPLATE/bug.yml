@@ -1,0 +1,26 @@
+name: 问题反馈
+description: 提供脱敏的复现步骤与设备兼容信息
+body:
+  - type: markdown
+    attributes:
+      value: 请勿上传订阅、Secret、密码、短信、IMEI 或备份。安全漏洞请按 SECURITY.md 私密报告。
+  - type: input
+    id: environment
+    attributes:
+      label: App 版本、iOS 版本、接入方式、设备型号与固件
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤、预期与实际结果
+      description: 说明是真机还是模拟器、只读还是写入操作，勿附真实配置。
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 脱敏确认
+      options:
+        - label: 我已移除凭据、订阅和设备个人信息。
+          required: true

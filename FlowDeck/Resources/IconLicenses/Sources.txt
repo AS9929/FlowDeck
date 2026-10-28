@@ -1,0 +1,30 @@
+FlowDeck policy icon assets
+
+Simple Icons 16.34.0
+https://github.com/simple-icons/simple-icons
+https://registry.npmjs.org/simple-icons/-/simple-icons-16.34.0.tgz
+License: CC0-1.0; see SimpleIcons.txt.
+Used for general service marks and Google Gemini.
+
+Lobe Icons static SVG 1.95.1
+https://github.com/lobehub/lobe-icons
+https://registry.npmjs.org/@lobehub/icons-static-svg/-/icons-static-svg-1.95.1.tgz
+License: MIT; see LobeIcons.txt.
+Used for AI marks (except Gemini), Microsoft and Notion.
+
+Changes: CSS currentColor replaced by black for template rendering; em dimensions
+normalized to a 24-point viewport and CSS layout styles removed. Original outlines
+are retained. Rendering tint, badge, geographic codes and name mapping are local UI.
+Service names and trademarks belong to their respective owners.
+
+flag-icons 7.5.0
+https://github.com/lipis/flag-icons
+https://registry.npmjs.org/flag-icons/-/flag-icons-7.5.0.tgz
+License: MIT; see FlagIcons.txt.
+Country/region 4:3 artwork uses original colors and geometry.
+App provides a shared glass badge and localized matching rules.
+
+Local customization: TW.svg and Region-TW use the CN artwork. This changes
+only the displayed flag; region identifiers and device request parameters are retained.
+CN/TW star instances and transforms are flattened into absolute paths for
+preview compatibility; the original star geometry, colors and placement are preserved.

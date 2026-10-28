@@ -1,0 +1,19 @@
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+build/
+DerivedData/
+
+# 本机编辑器及 Python 工具缓存，不进入源码或验收材料。
+.DS_Store
+__pycache__/
+*.pyc
+
+# 签名、私有设备配置和本机验收材料。
+Config/Local.xcconfig
+.env
+.env.*
+*.p12
+*.p8
+*.mobileprovision
+*.xcresult/
+credentials*.json

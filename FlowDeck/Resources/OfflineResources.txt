@@ -1,0 +1,10 @@
+FlowDeck 开源管理客户端的资源范围
+
+本仓库及 App 不携带 WebSSH、UFI-TOOLS、Mihomo 安装二进制，
+不携带 ASN/GeoIP/GeoSite 数据库或 mm.sh 安装归档。
+首次部署由用户在电脑上完成；App 连接已部署且通过身份验证的设备。
+
+随包二进制仅包含本项目 F50ConfigBridge.dex；对应 Java 源码和重建脚本位于
+Scripts/F50ConfigBridge，采用项目根目录 MIT 许可证。
+第三方图标保留各自许可证。完整来源与修改说明见根目录 THIRD_PARTY.md。
+通过标准控制接口管理远端服务，不意味着重新许可该服务或其数据文件。

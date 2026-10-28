@@ -1,0 +1,16 @@
+name: 新设备或接入方式
+description: 提交兼容性线索，不代表请求远程刷机
+body:
+  - type: input
+    id: device
+    attributes:
+      label: 型号、固件、管理服务版本与公开项目地址
+    validations:
+      required: true
+  - type: textarea
+    id: capability
+    attributes:
+      label: 已验证能力与缺失能力
+      description: 区分只读和写入，附脱敏接口文档，不上传固件、密码或备份。
+    validations:
+      required: true

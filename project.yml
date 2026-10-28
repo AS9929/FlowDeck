@@ -1,0 +1,111 @@
+name: FlowDeck
+options:
+  bundleIdPrefix: org.flowdeck
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: zh-Hans
+configFiles:
+  Debug: Config/App.xcconfig
+  Release: Config/App.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.4.0"
+    CURRENT_PROJECT_VERSION: "52"
+    CODE_SIGN_STYLE: Automatic
+targets:
+  FlowDeck:
+    type: application
+    platform: iOS
+    sources:
+      - path: FlowDeck
+      - path: Shared
+    dependencies:
+      - target: FlowDeckWidget
+    entitlements:
+      path: FlowDeck/FlowDeck.entitlements
+      properties:
+        com.apple.security.application-groups: ["$(FLOWDECK_APP_GROUP)"]
+    info:
+      path: FlowDeck/Info.plist
+      properties:
+        FlowDeckAppGroup: "$(FLOWDECK_APP_GROUP)"
+        FlowDeckKeychainService: "$(FLOWDECK_KEYCHAIN_SERVICE)"
+        FlowDeckURLScheme: "$(FLOWDECK_URL_SCHEME)"
+        CFBundleDisplayName: 驭流
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        CFBundleDevelopmentRegion: zh-Hans
+        UILaunchScreen: {}
+        NSSupportsLiveActivities: true
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSLocalNetworkUsageDescription: 用于在本地网络中连接你的路由器，读取设备状态并管理代理。
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        CFBundleURLTypes:
+          - CFBundleURLName: "$(FLOWDECK_BUNDLE_ID)"
+            CFBundleURLSchemes: ["$(FLOWDECK_URL_SCHEME)"]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(FLOWDECK_BUNDLE_ID)"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) FLOWDECK_APP"
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES: "GraphiteIcon PorcelainIcon"
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+  FlowDeckWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: FlowDeckWidget
+      - path: Shared
+    info:
+      path: FlowDeckWidget/Info.plist
+      properties:
+        FlowDeckAppGroup: "$(FLOWDECK_APP_GROUP)"
+        FlowDeckKeychainService: "$(FLOWDECK_KEYCHAIN_SERVICE)"
+        FlowDeckURLScheme: "$(FLOWDECK_URL_SCHEME)"
+        CFBundleDisplayName: 驭流
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: FlowDeckWidget/FlowDeckWidget.entitlements
+      properties:
+        com.apple.security.application-groups: ["$(FLOWDECK_APP_GROUP)"]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: "$(FLOWDECK_BUNDLE_ID).widgets"
+        TARGETED_DEVICE_FAMILY: "1"
+  FlowDeckTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FlowDeckTests
+    dependencies:
+      - target: FlowDeck
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+  FlowDeckUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: FlowDeckUITests
+    dependencies:
+      - target: FlowDeck
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  FlowDeck:
+    build:
+      targets:
+        FlowDeck: all
+        FlowDeckTests: [test]
+    test:
+      targets:
+        - FlowDeckTests
+        - FlowDeckUITests

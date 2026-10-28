@@ -1,0 +1,1304 @@
+[
+  {
+    "id": "direct",
+    "title": "直接连接",
+    "category": "路由策略",
+    "aliases": [
+      "直接连接",
+      "direct",
+      "直连",
+      "国内直连",
+      "DIRECT"
+    ],
+    "symbol": "arrow.up.right"
+  },
+  {
+    "id": "reject-drop",
+    "title": "丢弃连接",
+    "category": "路由策略",
+    "aliases": [
+      "丢弃连接",
+      "reject-drop",
+      "REJECT-DROP",
+      "静默丢弃"
+    ],
+    "symbol": "hand.raised.slash"
+  },
+  {
+    "id": "reject",
+    "title": "拒绝连接",
+    "category": "路由策略",
+    "aliases": [
+      "拒绝连接",
+      "reject",
+      "REJECT",
+      "拦截",
+      "阻止"
+    ],
+    "symbol": "hand.raised"
+  },
+  {
+    "id": "proxy",
+    "title": "代理出口",
+    "category": "路由策略",
+    "aliases": [
+      "代理出口",
+      "proxy",
+      "PROXY",
+      "Proxies",
+      "节点选择",
+      "代理选择"
+    ],
+    "symbol": "arrow.triangle.branch"
+  },
+  {
+    "id": "global",
+    "title": "全局代理",
+    "category": "路由策略",
+    "aliases": [
+      "全局代理",
+      "global",
+      "GLOBAL",
+      "全局"
+    ],
+    "symbol": "globe"
+  },
+  {
+    "id": "rule",
+    "title": "规则分流",
+    "category": "路由策略",
+    "aliases": [
+      "规则分流",
+      "rule",
+      "规则判定",
+      "RULE"
+    ],
+    "symbol": "line.3.horizontal.decrease"
+  },
+  {
+    "id": "auto",
+    "title": "自动选择",
+    "category": "路由策略",
+    "aliases": [
+      "自动选择",
+      "auto",
+      "URLTest",
+      "url-test",
+      "自动测速",
+      "Auto",
+      "延迟优选"
+    ],
+    "symbol": "bolt"
+  },
+  {
+    "id": "fallback",
+    "title": "故障转移",
+    "category": "路由策略",
+    "aliases": [
+      "故障转移",
+      "fallback",
+      "自动回退",
+      "Fallback",
+      "故障切换"
+    ],
+    "symbol": "arrow.triangle.2.circlepath"
+  },
+  {
+    "id": "balance",
+    "title": "负载均衡",
+    "category": "路由策略",
+    "aliases": [
+      "负载均衡",
+      "balance",
+      "LoadBalance",
+      "load-balance"
+    ],
+    "symbol": "scale.3d"
+  },
+  {
+    "id": "relay",
+    "title": "链式代理",
+    "category": "路由策略",
+    "aliases": [
+      "链式代理",
+      "relay",
+      "Relay",
+      "链式"
+    ],
+    "symbol": "link"
+  },
+  {
+    "id": "smart",
+    "title": "智能选择",
+    "category": "路由策略",
+    "aliases": [
+      "智能选择",
+      "smart",
+      "Smart",
+      "智能"
+    ],
+    "symbol": "sparkles"
+  },
+  {
+    "id": "select",
+    "title": "手动选择",
+    "category": "路由策略",
+    "aliases": [
+      "手动选择",
+      "select",
+      "Selector",
+      "Select",
+      "手动"
+    ],
+    "symbol": "cursorarrow.click"
+  },
+  {
+    "id": "final",
+    "title": "其余流量",
+    "category": "路由策略",
+    "aliases": [
+      "其余流量",
+      "final",
+      "Final",
+      "MATCH",
+      "兜底",
+      "漏网之鱼"
+    ],
+    "symbol": "tray"
+  },
+  {
+    "id": "compatible",
+    "title": "兼容回退",
+    "category": "路由策略",
+    "aliases": [
+      "兼容回退",
+      "compatible",
+      "COMPATIBLE"
+    ],
+    "symbol": "arrow.turn.down.right"
+  },
+  {
+    "id": "pass",
+    "title": "继续匹配",
+    "category": "路由策略",
+    "aliases": [
+      "继续匹配",
+      "pass",
+      "PASS"
+    ],
+    "symbol": "arrow.forward"
+  },
+  {
+    "id": "ads",
+    "title": "广告拦截",
+    "category": "通用服务",
+    "aliases": [
+      "广告拦截",
+      "ads",
+      "AdBlock",
+      "Advertising",
+      "广告",
+      "category-ads-all"
+    ],
+    "symbol": "shield.slash"
+  },
+  {
+    "id": "privacy",
+    "title": "隐私保护",
+    "category": "通用服务",
+    "aliases": [
+      "隐私保护",
+      "privacy",
+      "Privacy",
+      "Tracker",
+      "追踪",
+      "隐私"
+    ],
+    "symbol": "hand.raised.square"
+  },
+  {
+    "id": "security",
+    "title": "安全防护",
+    "category": "通用服务",
+    "aliases": [
+      "安全防护",
+      "security",
+      "Malware",
+      "Phishing",
+      "恶意",
+      "安全"
+    ],
+    "symbol": "lock.shield"
+  },
+  {
+    "id": "lan",
+    "title": "局域网络",
+    "category": "通用服务",
+    "aliases": [
+      "局域网络",
+      "lan",
+      "LAN",
+      "Private",
+      "局域网",
+      "内网"
+    ],
+    "symbol": "network"
+  },
+  {
+    "id": "dns",
+    "title": "域名解析",
+    "category": "通用服务",
+    "aliases": [
+      "域名解析",
+      "dns",
+      "DNS",
+      "解析"
+    ],
+    "symbol": "network.badge.shield.half.filled"
+  },
+  {
+    "id": "cdn",
+    "title": "内容分发",
+    "category": "通用服务",
+    "aliases": [
+      "内容分发",
+      "cdn",
+      "CDN",
+      "内容分发"
+    ],
+    "symbol": "shippingbox"
+  },
+  {
+    "id": "download",
+    "title": "下载服务",
+    "category": "通用服务",
+    "aliases": [
+      "下载服务",
+      "download",
+      "Download",
+      "下载"
+    ],
+    "symbol": "arrow.down.to.line"
+  },
+  {
+    "id": "p2p",
+    "title": "点对点下载",
+    "category": "通用服务",
+    "aliases": [
+      "点对点下载",
+      "p2p",
+      "P2P",
+      "Torrent",
+      "BT",
+      "种子"
+    ],
+    "symbol": "point.3.connected.trianglepath.dotted"
+  },
+  {
+    "id": "speedtest",
+    "title": "网络测速",
+    "category": "通用服务",
+    "aliases": [
+      "网络测速",
+      "speedtest",
+      "Speedtest",
+      "测速"
+    ],
+    "symbol": "speedometer"
+  },
+  {
+    "id": "ai",
+    "title": "人工智能",
+    "category": "通用服务",
+    "aliases": [
+      "人工智能",
+      "ai",
+      "AI",
+      "AI服务",
+      "大模型",
+      "人工智能",
+      "category-ai"
+    ],
+    "symbol": "sparkles"
+  },
+  {
+    "id": "media",
+    "title": "流媒体",
+    "category": "通用服务",
+    "aliases": [
+      "流媒体",
+      "media",
+      "Streaming",
+      "Media",
+      "流媒体",
+      "影视"
+    ],
+    "symbol": "play.rectangle"
+  },
+  {
+    "id": "music",
+    "title": "音乐播客",
+    "category": "通用服务",
+    "aliases": [
+      "音乐播客",
+      "music",
+      "Music",
+      "Podcast",
+      "音乐",
+      "播客"
+    ],
+    "symbol": "music.note"
+  },
+  {
+    "id": "social",
+    "title": "社交通讯",
+    "category": "通用服务",
+    "aliases": [
+      "社交通讯",
+      "social",
+      "Social",
+      "社交",
+      "通讯",
+      "通信"
+    ],
+    "symbol": "bubble.left.and.bubble.right"
+  },
+  {
+    "id": "games",
+    "title": "游戏服务",
+    "category": "通用服务",
+    "aliases": [
+      "游戏服务",
+      "games",
+      "Game",
+      "Games",
+      "Gaming",
+      "游戏"
+    ],
+    "symbol": "gamecontroller"
+  },
+  {
+    "id": "cloud",
+    "title": "云盘存储",
+    "category": "通用服务",
+    "aliases": [
+      "云盘存储",
+      "cloud",
+      "Cloud",
+      "云盘",
+      "存储"
+    ],
+    "symbol": "externaldrive.badge.icloud"
+  },
+  {
+    "id": "work",
+    "title": "办公协作",
+    "category": "通用服务",
+    "aliases": [
+      "办公协作",
+      "work",
+      "Office",
+      "Work",
+      "办公",
+      "协作"
+    ],
+    "symbol": "briefcase"
+  },
+  {
+    "id": "developer",
+    "title": "开发工具",
+    "category": "通用服务",
+    "aliases": [
+      "开发工具",
+      "developer",
+      "Developer",
+      "Dev",
+      "开发"
+    ],
+    "symbol": "chevron.left.forwardslash.chevron.right"
+  },
+  {
+    "id": "finance",
+    "title": "金融支付",
+    "category": "通用服务",
+    "aliases": [
+      "金融支付",
+      "finance",
+      "Finance",
+      "Payment",
+      "支付",
+      "金融"
+    ],
+    "symbol": "creditcard"
+  },
+  {
+    "id": "shopping",
+    "title": "购物电商",
+    "category": "通用服务",
+    "aliases": [
+      "购物电商",
+      "shopping",
+      "Shopping",
+      "电商",
+      "购物"
+    ],
+    "symbol": "bag"
+  },
+  {
+    "id": "education",
+    "title": "教育学术",
+    "category": "通用服务",
+    "aliases": [
+      "教育学术",
+      "education",
+      "Education",
+      "Scholar",
+      "教育",
+      "学术"
+    ],
+    "symbol": "graduationcap"
+  },
+  {
+    "id": "news",
+    "title": "新闻资讯",
+    "category": "通用服务",
+    "aliases": [
+      "新闻资讯",
+      "news",
+      "News",
+      "新闻"
+    ],
+    "symbol": "newspaper"
+  },
+  {
+    "id": "domestic",
+    "title": "国内服务",
+    "category": "通用服务",
+    "aliases": [
+      "国内服务",
+      "domestic",
+      "Domestic",
+      "China Service",
+      "国内"
+    ],
+    "symbol": "house"
+  },
+  {
+    "id": "overseas",
+    "title": "国际服务",
+    "category": "通用服务",
+    "aliases": [
+      "国际服务",
+      "overseas",
+      "Overseas",
+      "Global Service",
+      "国外",
+      "国际"
+    ],
+    "symbol": "globe.americas"
+  },
+  {
+    "id": "openai",
+    "title": "OpenAI",
+    "category": "AI 与模型",
+    "aliases": [
+      "OpenAI",
+      "openai",
+      "ChatGPT",
+      "Chat GPT",
+      "GPT",
+      "Sora",
+      "Codex"
+    ],
+    "asset": "Policy-openai"
+  },
+  {
+    "id": "claude",
+    "title": "Claude",
+    "category": "AI 与模型",
+    "aliases": [
+      "Claude",
+      "claude",
+      "Anthropic",
+      "Claude Code"
+    ],
+    "asset": "Policy-claude"
+  },
+  {
+    "id": "gemini",
+    "title": "Gemini",
+    "category": "AI 与模型",
+    "aliases": [
+      "Gemini",
+      "gemini",
+      "Google AI",
+      "Bard",
+      "AI Studio"
+    ],
+    "asset": "Policy-gemini"
+  },
+  {
+    "id": "deepseek",
+    "title": "DeepSeek",
+    "category": "AI 与模型",
+    "aliases": [
+      "DeepSeek",
+      "deepseek",
+      "深度求索"
+    ],
+    "asset": "Policy-deepseek"
+  },
+  {
+    "id": "grok",
+    "title": "Grok",
+    "category": "AI 与模型",
+    "aliases": [
+      "Grok",
+      "grok",
+      "xAI"
+    ],
+    "asset": "Policy-grok"
+  },
+  {
+    "id": "perplexity",
+    "title": "Perplexity",
+    "category": "AI 与模型",
+    "aliases": [
+      "Perplexity",
+      "perplexity",
+      "PPLX"
+    ],
+    "asset": "Policy-perplexity"
+  },
+  {
+    "id": "copilot",
+    "title": "Copilot",
+    "category": "AI 与模型",
+    "aliases": [
+      "Copilot",
+      "copilot",
+      "GitHub Copilot",
+      "Microsoft Copilot"
+    ],
+    "asset": "Policy-copilot"
+  },
+  {
+    "id": "qwen",
+    "title": "Qwen",
+    "category": "AI 与模型",
+    "aliases": [
+      "Qwen",
+      "qwen",
+      "通义千问",
+      "通义"
+    ],
+    "asset": "Policy-qwen"
+  },
+  {
+    "id": "kimi",
+    "title": "Kimi",
+    "category": "AI 与模型",
+    "aliases": [
+      "Kimi",
+      "kimi",
+      "Moonshot",
+      "月之暗面"
+    ],
+    "asset": "Policy-kimi"
+  },
+  {
+    "id": "doubao",
+    "title": "豆包",
+    "category": "AI 与模型",
+    "aliases": [
+      "豆包",
+      "doubao",
+      "Doubao"
+    ],
+    "asset": "Policy-doubao"
+  },
+  {
+    "id": "minimax",
+    "title": "MiniMax",
+    "category": "AI 与模型",
+    "aliases": [
+      "MiniMax",
+      "minimax",
+      "海螺",
+      "Hailuo"
+    ],
+    "asset": "Policy-minimax"
+  },
+  {
+    "id": "zhipu",
+    "title": "智谱",
+    "category": "AI 与模型",
+    "aliases": [
+      "智谱",
+      "zhipu",
+      "GLM",
+      "Zhipu",
+      "Z.ai"
+    ],
+    "asset": "Policy-zhipu"
+  },
+  {
+    "id": "hunyuan",
+    "title": "混元",
+    "category": "AI 与模型",
+    "aliases": [
+      "混元",
+      "hunyuan",
+      "Hunyuan"
+    ],
+    "asset": "Policy-hunyuan"
+  },
+  {
+    "id": "wenxin",
+    "title": "文心一言",
+    "category": "AI 与模型",
+    "aliases": [
+      "文心一言",
+      "wenxin",
+      "Wenxin",
+      "Ernie"
+    ],
+    "asset": "Policy-wenxin"
+  },
+  {
+    "id": "mistral",
+    "title": "Mistral",
+    "category": "AI 与模型",
+    "aliases": [
+      "Mistral",
+      "mistral",
+      "Le Chat"
+    ],
+    "asset": "Policy-mistral"
+  },
+  {
+    "id": "cohere",
+    "title": "Cohere",
+    "category": "AI 与模型",
+    "aliases": [
+      "Cohere",
+      "cohere",
+      "Command R"
+    ],
+    "asset": "Policy-cohere"
+  },
+  {
+    "id": "groq",
+    "title": "Groq",
+    "category": "AI 与模型",
+    "aliases": [
+      "Groq",
+      "groq",
+      "GroqCloud"
+    ],
+    "asset": "Policy-groq"
+  },
+  {
+    "id": "metaai",
+    "title": "Meta AI",
+    "category": "AI 与模型",
+    "aliases": [
+      "Meta AI",
+      "metaai",
+      "Llama"
+    ],
+    "asset": "Policy-metaai"
+  },
+  {
+    "id": "openrouter",
+    "title": "OpenRouter",
+    "category": "AI 与模型",
+    "aliases": [
+      "OpenRouter",
+      "openrouter",
+      "Open Router"
+    ],
+    "asset": "Policy-openrouter"
+  },
+  {
+    "id": "huggingface",
+    "title": "Hugging Face",
+    "category": "AI 与模型",
+    "aliases": [
+      "Hugging Face",
+      "huggingface",
+      "HuggingFace"
+    ],
+    "asset": "Policy-huggingface"
+  },
+  {
+    "id": "ollama",
+    "title": "Ollama",
+    "category": "AI 与模型",
+    "aliases": [
+      "Ollama",
+      "ollama",
+      "本地模型"
+    ],
+    "asset": "Policy-ollama"
+  },
+  {
+    "id": "cursor",
+    "title": "Cursor",
+    "category": "AI 与模型",
+    "aliases": [
+      "Cursor",
+      "cursor",
+      "Cursor AI"
+    ],
+    "asset": "Policy-cursor"
+  },
+  {
+    "id": "midjourney",
+    "title": "Midjourney",
+    "category": "AI 与模型",
+    "aliases": [
+      "Midjourney",
+      "midjourney",
+      "MJ"
+    ],
+    "asset": "Policy-midjourney"
+  },
+  {
+    "id": "suno",
+    "title": "Suno",
+    "category": "AI 与模型",
+    "aliases": [
+      "Suno",
+      "suno",
+      "Suno AI"
+    ],
+    "asset": "Policy-suno"
+  },
+  {
+    "id": "stability",
+    "title": "Stability",
+    "category": "AI 与模型",
+    "aliases": [
+      "Stability",
+      "stability",
+      "Stable Diffusion"
+    ],
+    "asset": "Policy-stability"
+  },
+  {
+    "id": "youtube",
+    "title": "YouTube",
+    "category": "影音娱乐",
+    "aliases": [
+      "YouTube",
+      "youtube",
+      "油管",
+      "YouTube Music"
+    ],
+    "asset": "Policy-youtube"
+  },
+  {
+    "id": "netflix",
+    "title": "Netflix",
+    "category": "影音娱乐",
+    "aliases": [
+      "Netflix",
+      "netflix",
+      "奈飞",
+      "网飞"
+    ],
+    "asset": "Policy-netflix"
+  },
+  {
+    "id": "appletv",
+    "title": "Apple TV",
+    "category": "影音娱乐",
+    "aliases": [
+      "Apple TV",
+      "appletv",
+      "AppleTV",
+      "Apple TV+"
+    ],
+    "symbol": "appletv"
+  },
+  {
+    "id": "hbomax",
+    "title": "HBO Max",
+    "category": "影音娱乐",
+    "aliases": [
+      "HBO Max",
+      "hbomax",
+      "HBO",
+      "Max"
+    ],
+    "symbol": "tv"
+  },
+  {
+    "id": "paramount",
+    "title": "Paramount+",
+    "category": "影音娱乐",
+    "aliases": [
+      "Paramount+",
+      "paramount",
+      "Paramount",
+      "派拉蒙"
+    ],
+    "asset": "Policy-paramount"
+  },
+  {
+    "id": "bilibili",
+    "title": "哔哩哔哩",
+    "category": "影音娱乐",
+    "aliases": [
+      "哔哩哔哩",
+      "bilibili",
+      "Bilibili",
+      "B站",
+      "哔哩"
+    ],
+    "asset": "Policy-bilibili"
+  },
+  {
+    "id": "spotify",
+    "title": "Spotify",
+    "category": "影音娱乐",
+    "aliases": [
+      "Spotify",
+      "spotify",
+      "声田"
+    ],
+    "asset": "Policy-spotify"
+  },
+  {
+    "id": "applemusic",
+    "title": "Apple Music",
+    "category": "影音娱乐",
+    "aliases": [
+      "Apple Music",
+      "applemusic",
+      "AppleMusic"
+    ],
+    "asset": "Policy-applemusic"
+  },
+  {
+    "id": "twitch",
+    "title": "Twitch",
+    "category": "影音娱乐",
+    "aliases": [
+      "Twitch",
+      "twitch",
+      "直播"
+    ],
+    "asset": "Policy-twitch"
+  },
+  {
+    "id": "tiktok",
+    "title": "TikTok",
+    "category": "影音娱乐",
+    "aliases": [
+      "TikTok",
+      "tiktok",
+      "抖音"
+    ],
+    "asset": "Policy-tiktok"
+  },
+  {
+    "id": "crunchyroll",
+    "title": "Crunchyroll",
+    "category": "影音娱乐",
+    "aliases": [
+      "Crunchyroll",
+      "crunchyroll",
+      "动漫"
+    ],
+    "asset": "Policy-crunchyroll"
+  },
+  {
+    "id": "plex",
+    "title": "Plex",
+    "category": "影音娱乐",
+    "aliases": [
+      "Plex",
+      "plex",
+      ""
+    ],
+    "asset": "Policy-plex"
+  },
+  {
+    "id": "emby",
+    "title": "Emby",
+    "category": "影音娱乐",
+    "aliases": [
+      "Emby",
+      "emby",
+      ""
+    ],
+    "asset": "Policy-emby"
+  },
+  {
+    "id": "jellyfin",
+    "title": "Jellyfin",
+    "category": "影音娱乐",
+    "aliases": [
+      "Jellyfin",
+      "jellyfin",
+      ""
+    ],
+    "asset": "Policy-jellyfin"
+  },
+  {
+    "id": "telegram",
+    "title": "Telegram",
+    "category": "社交通讯",
+    "aliases": [
+      "Telegram",
+      "telegram",
+      "电报",
+      "TG"
+    ],
+    "asset": "Policy-telegram"
+  },
+  {
+    "id": "whatsapp",
+    "title": "WhatsApp",
+    "category": "社交通讯",
+    "aliases": [
+      "WhatsApp",
+      "whatsapp",
+      ""
+    ],
+    "asset": "Policy-whatsapp"
+  },
+  {
+    "id": "twitter",
+    "title": "X / Twitter",
+    "category": "社交通讯",
+    "aliases": [
+      "X / Twitter",
+      "twitter",
+      "Twitter",
+      "X",
+      "推特"
+    ],
+    "asset": "Policy-twitter"
+  },
+  {
+    "id": "discord",
+    "title": "Discord",
+    "category": "社交通讯",
+    "aliases": [
+      "Discord",
+      "discord",
+      ""
+    ],
+    "asset": "Policy-discord"
+  },
+  {
+    "id": "reddit",
+    "title": "Reddit",
+    "category": "社交通讯",
+    "aliases": [
+      "Reddit",
+      "reddit",
+      ""
+    ],
+    "asset": "Policy-reddit"
+  },
+  {
+    "id": "facebook",
+    "title": "Facebook",
+    "category": "社交通讯",
+    "aliases": [
+      "Facebook",
+      "facebook",
+      "脸书"
+    ],
+    "asset": "Policy-facebook"
+  },
+  {
+    "id": "instagram",
+    "title": "Instagram",
+    "category": "社交通讯",
+    "aliases": [
+      "Instagram",
+      "instagram",
+      "Ins"
+    ],
+    "asset": "Policy-instagram"
+  },
+  {
+    "id": "signal",
+    "title": "Signal",
+    "category": "社交通讯",
+    "aliases": [
+      "Signal",
+      "signal",
+      ""
+    ],
+    "asset": "Policy-signal"
+  },
+  {
+    "id": "line",
+    "title": "LINE",
+    "category": "社交通讯",
+    "aliases": [
+      "LINE",
+      "line",
+      ""
+    ],
+    "asset": "Policy-line"
+  },
+  {
+    "id": "wechat",
+    "title": "微信",
+    "category": "社交通讯",
+    "aliases": [
+      "微信",
+      "wechat",
+      "WeChat",
+      "微信"
+    ],
+    "asset": "Policy-wechat"
+  },
+  {
+    "id": "steam",
+    "title": "Steam",
+    "category": "游戏服务",
+    "aliases": [
+      "Steam",
+      "steam",
+      ""
+    ],
+    "asset": "Policy-steam"
+  },
+  {
+    "id": "epic",
+    "title": "Epic Games",
+    "category": "游戏服务",
+    "aliases": [
+      "Epic Games",
+      "epic",
+      "Epic"
+    ],
+    "symbol": "gamecontroller"
+  },
+  {
+    "id": "playstation",
+    "title": "PlayStation",
+    "category": "游戏服务",
+    "aliases": [
+      "PlayStation",
+      "playstation",
+      "PSN",
+      "PlayStation Network"
+    ],
+    "asset": "Policy-playstation"
+  },
+  {
+    "id": "apple",
+    "title": "Apple",
+    "category": "云服务与工具",
+    "aliases": [
+      "Apple",
+      "apple",
+      "苹果"
+    ],
+    "asset": "Policy-apple"
+  },
+  {
+    "id": "google",
+    "title": "Google",
+    "category": "云服务与工具",
+    "aliases": [
+      "Google",
+      "google",
+      "谷歌"
+    ],
+    "asset": "Policy-google"
+  },
+  {
+    "id": "icloud",
+    "title": "iCloud",
+    "category": "云服务与工具",
+    "aliases": [
+      "iCloud",
+      "icloud",
+      ""
+    ],
+    "asset": "Policy-icloud"
+  },
+  {
+    "id": "googledrive",
+    "title": "Google Drive",
+    "category": "云服务与工具",
+    "aliases": [
+      "Google Drive",
+      "googledrive",
+      "GoogleDrive"
+    ],
+    "asset": "Policy-googledrive"
+  },
+  {
+    "id": "dropbox",
+    "title": "Dropbox",
+    "category": "云服务与工具",
+    "aliases": [
+      "Dropbox",
+      "dropbox",
+      ""
+    ],
+    "asset": "Policy-dropbox"
+  },
+  {
+    "id": "github",
+    "title": "GitHub",
+    "category": "云服务与工具",
+    "aliases": [
+      "GitHub",
+      "github",
+      ""
+    ],
+    "asset": "Policy-github"
+  },
+  {
+    "id": "gitlab",
+    "title": "GitLab",
+    "category": "云服务与工具",
+    "aliases": [
+      "GitLab",
+      "gitlab",
+      ""
+    ],
+    "asset": "Policy-gitlab"
+  },
+  {
+    "id": "cloudflare",
+    "title": "Cloudflare",
+    "category": "云服务与工具",
+    "aliases": [
+      "Cloudflare",
+      "cloudflare",
+      ""
+    ],
+    "asset": "Policy-cloudflare"
+  },
+  {
+    "id": "paypal",
+    "title": "PayPal",
+    "category": "云服务与工具",
+    "aliases": [
+      "PayPal",
+      "paypal",
+      ""
+    ],
+    "asset": "Policy-paypal"
+  },
+  {
+    "id": "microsoft",
+    "title": "Microsoft",
+    "category": "云服务与工具",
+    "aliases": [
+      "Microsoft",
+      "microsoft",
+      "微软",
+      "OneDrive",
+      "Outlook",
+      "Bing"
+    ],
+    "asset": "Policy-microsoft"
+  },
+  {
+    "id": "notion",
+    "title": "Notion",
+    "category": "云服务与工具",
+    "aliases": [
+      "Notion",
+      "notion",
+      ""
+    ],
+    "asset": "Policy-notion"
+  },
+  {
+    "id": "disney",
+    "title": "Disney+",
+    "category": "影音娱乐",
+    "aliases": [
+      "disney",
+      "Disney+",
+      "Disney",
+      "迪士尼"
+    ],
+    "symbol": "sparkles.tv"
+  },
+  {
+    "id": "primevideo",
+    "title": "Prime Video",
+    "category": "影音娱乐",
+    "aliases": [
+      "primevideo",
+      "Prime Video",
+      "PrimeVideo",
+      "Amazon Prime",
+      "亚马逊视频"
+    ],
+    "symbol": "play.rectangle"
+  },
+  {
+    "id": "hulu",
+    "title": "Hulu",
+    "category": "影音娱乐",
+    "aliases": [
+      "hulu",
+      "Hulu",
+      ""
+    ],
+    "symbol": "tv"
+  },
+  {
+    "id": "bahamut",
+    "title": "巴哈姆特",
+    "category": "影音娱乐",
+    "aliases": [
+      "bahamut",
+      "巴哈姆特",
+      "Bahamut",
+      "动画疯"
+    ],
+    "symbol": "play.tv"
+  },
+  {
+    "id": "nintendo",
+    "title": "Nintendo",
+    "category": "游戏服务",
+    "aliases": [
+      "nintendo",
+      "Nintendo",
+      "Nintendo Switch",
+      "任天堂"
+    ],
+    "symbol": "gamecontroller"
+  },
+  {
+    "id": "xbox",
+    "title": "Xbox",
+    "category": "游戏服务",
+    "aliases": [
+      "xbox",
+      "Xbox",
+      "Xbox Live"
+    ],
+    "symbol": "gamecontroller"
+  },
+  {
+    "id": "truthsocial",
+    "title": "Truth Social",
+    "category": "社交通讯",
+    "aliases": [
+      "truthsocial",
+      "Truth Social",
+      "TruthSocial"
+    ],
+    "symbol": "quote.bubble"
+  }
+]
