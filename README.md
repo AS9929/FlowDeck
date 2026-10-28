@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/AS9929/FlowDeck/actions/workflows/ci.yml"><img src="https://github.com/AS9929/FlowDeck/actions/workflows/ci.yml/badge.svg" alt="Build and audit"></a>
+  <a href="https://github.com/AS9929/FlowDeck/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square" alt="Build and audit"></a>
   <img src="https://img.shields.io/badge/iOS-17%2B-007AFF?style=flat-square" alt="iOS 17 及以上">
   <img src="https://img.shields.io/badge/UI-SwiftUI-007AFF?style=flat-square" alt="SwiftUI">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-34C759?style=flat-square" alt="MIT License"></a>
