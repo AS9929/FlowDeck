@@ -1,107 +1,172 @@
-# 驭流 FlowDeck（iOS）
+<p align="center">
+  <img src="FlowDeck/Resources/Assets.xcassets/BrandMark.imageset/BrandMark.png" width="112" alt="FlowDeck App 图标">
+</p>
 
-集中管理已部署的中兴随身 Wi-Fi 与 Mihomo。当前版本 **0.4.0 / Build 52**。
+<h1 align="center">FlowDeck · 驭流</h1>
 
-工程、Scheme 与主模块统一命名为 `FlowDeck`，测试与小组件使用同名前缀。
-公共构建使用独立身份，本机维护者构建可通过忽略的配置文件延续原身份。
-签名、App Group 和钥匙串配置方法见 [开发指南](docs/Development.md)。
+<p align="center">
+  <strong>中兴随身 Wi-Fi 与 Mihomo 的原生 iOS 管理客户端</strong>
+</p>
 
-## 接入与兼容边界
+<p align="center">
+  <a href="https://github.com/AS9929/FlowDeck/actions/workflows/ci.yml"><img src="https://github.com/AS9929/FlowDeck/actions/workflows/ci.yml/badge.svg" alt="Build and audit"></a>
+  <img src="https://img.shields.io/badge/iOS-17%2B-007AFF?style=flat-square" alt="iOS 17 及以上">
+  <img src="https://img.shields.io/badge/UI-SwiftUI-007AFF?style=flat-square" alt="SwiftUI">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-34C759?style=flat-square" alt="MIT License"></a>
+</p>
 
-| 接入方式 | 当前验证组合 | 职责 |
-|---|---|---|
-| WebSSH + Mihomo | 中兴 U60 Pro / MU5250 B28 | 原厂设备管理、系统维护与 Mihomo 管理 |
-| UFI-TOOLS + Mihomo | 中兴 F50 / MU300 B09，UFI-TOOLS 4.1.5 | Android/UFI 通道、原厂网页接口与 Mihomo 管理 |
+<p align="center">
+  <a href="#功能概览">功能概览</a> ·
+  <a href="#设备兼容">设备兼容</a> ·
+  <a href="#开始使用">开始使用</a> ·
+  <a href="#构建与开发">构建与开发</a> ·
+  <a href="CONTRIBUTING.md">参与贡献</a>
+</p>
 
-型号、固件、服务布局和摘要由适配器再次校验，安装了同名组件不代表可安全写入。
-首次 Root、刷机及部署由电脑完成，App 接入页只管理上述已部署组合。
-未添加、未验证和离线状态分别处理；演示需要主动选择，不用示例数据掩盖真实失败。
-原厂网页密码、管理口令与 Mihomo Secret 分开存入本机钥匙串。
+FlowDeck 将网络状态、Mihomo 策略与设备维护整合到同一个 App。连接随身 Wi-Fi 后，
+即可查看流量与信号、切换节点、管理无线网络，并完成配置编辑、诊断和适配范围内的维护操作。
 
-在 **Mihomo → 策略操作（…）→ 常用策略组** 选择首页关注和快捷切换的策略组。
-偏好按设备隔离；自动识别兼容 `Proxies` 或唯一可用组，多组不明确时提示选择。
-常用策略的选中节点不代表规则模式下所有连接的实际出口，真实出口仍需独立探测。
-移除同一硬件的最后一条连接记录时，会清理本机 Wi-Fi/APN 恢复副本、短信草稿和策略偏好；不会修改路由器。
+目前提供 **WebSSH + Mihomo** 与 **UFI-TOOLS + Mihomo** 两种接入方式。
+代理核心运行在随身 Wi-Fi 上，FlowDeck 负责连接与管理设备端服务。
 
+<table>
+  <tr>
+    <td align="center" width="33%"><strong>总览</strong><br><sub>网络路径、实时流量与设备状态</sub></td>
+    <td align="center" width="33%"><strong>Mihomo</strong><br><sub>策略、连接与配置</sub></td>
+    <td align="center" width="33%"><strong>设备</strong><br><sub>无线网络与原厂功能</sub></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/overview.jpg" width="280" alt="FlowDeck 总览：流量、网络路径、信号、电量与快捷入口"></td>
+    <td><img src="docs/images/mihomo.jpg" width="280" alt="FlowDeck Mihomo：策略组、当前节点与延迟"></td>
+    <td><img src="docs/images/device.jpg" width="280" alt="FlowDeck 设备：蜂窝、Wi-Fi、短信、SIM 与供电管理"></td>
+  </tr>
+</table>
 
-## 代码结构
+<p align="center"><sub>截图来自 iOS 26.2 模拟器的演示模式，使用示例数据。实际入口随设备与接入方式变化。</sub></p>
 
-```text
-FlowDeck/
-  App/                    启动、路由、快捷指令与系统入口
-  Core/
-    Devices/              设备记录、会话、操作锁、注册表与兼容性
-    Capabilities/         页面和用例依赖的能力协议
-    Backends/WebSSH/       WebSSH 通信、原厂接口与数据模型
-    Backends/UFI/          UFI 通信及 WiFi、Messages、Radio、Configuration、Maintenance
-    Mihomo/               标准控制 API、模型、流量订阅
-    Diagnostics/          DNS、时钟、手机 UDP 探测
-    Configuration/        配置转换与差异计算
-    Persistence/          钥匙串与原厂加密
-    Models/               跨功能管理模型
-    Demo/                 明确的演示替身
-  Services/               完整业务流程：诊断、备份、更新、恢复、原厂读取与回读
-  Features/               页面与本地交互状态；UFI 专属页面位于 Device/UFI
-  Design/                 通用布局、玻璃、图标和导航组件
-  Preferences/            外观与 App 图标偏好
-  Legacy/Deployment/      历史电脑辅助部署实现，保留协议测试；非正式接入入口
-  Resources/              图标、桥接 dex 与许可证；不含首次部署载荷
-Shared/                   App 与 Widget 共用模型和系统动作
-FlowDeckWidget/           小组件与控制扩展
-FlowDeckTests/            Architecture、Services、Backends、Diagnostics、Mihomo、Features、Legacy
-FlowDeckUITests/          导航、未绑定入口与可选 F50 现场检查
-Scripts/F50ConfigBridge/  Android 桥接源码及构建/探测工具
-Scripts/Tests/            隔离宿主事务测试与统一入口
-DesignResources/          设计源资产
-build/                    本机历史构建与验收证据，已忽略，不进入产品 target
-```
+## 功能概览
 
-`project.yml` 是工程配置来源；目录增删后运行 `xcodegen generate`。App/Shared 由目录递归编译，
-不要手改生成工程增加重复文件。文件归属清单见 [代码结构](docs/CodeStructure.md)。
+### 网络状态，一屏掌握
 
-## 开发与验证
+实时上传与下载速率、蜂窝信号、电量与温度集中呈现；从手机、设备到网络出口的路径可视化，
+配合常用策略和快捷入口，快速判断当前连接状态。
 
-使用 Xcode 26、XcodeGen（本地验证版本及可选 Android 工具链见 [开发指南](docs/Development.md)）；最低 iOS 17，iOS 26 使用系统 Liquid Glass，旧系统使用材质回退。
-以下模拟器名称应替换为本机已安装设备，或改用明确的 simulator ID。
+### Mihomo，原生操作
+
+管理策略组与节点、切换规则／全局／直连模式，查看连接和实时日志。
+配置文件支持导入与编辑，常用策略偏好按设备保存，并与小组件、快捷指令共享。
+
+### 设备管理，按能力呈现
+
+在同一套界面中访问 Wi-Fi、接入设备、短信、SIM/APN、USB 与供电等功能。
+App 根据接入方式和设备能力展示入口；后端适配器负责处理认证、固件差异和写入校验。
+
+### 诊断与维护，保留操作上下文
+
+区分管理连接、蜂窝网络、代理 TCP、DNS、设备 UDP 与手机 UDP 出口，展示各项探测的结果和范围。
+已适配的维护流程提供配置备份、内核更新与恢复，并在写入前核验设备身份和兼容性。
+
+### 为 iPhone 设计
+
+SwiftUI 原生界面，支持浅色／深色外观、替代 App 图标、小组件与快捷指令。
+iOS 26 使用 Liquid Glass，较早系统使用材质回退。未绑定、离线与演示状态各有明确入口。
+
+## 设备兼容
+
+兼容性以 **设备型号、固件、接入方式和服务布局** 的组合为单位。
+
+| 接入方式 | 当前验证组合 | 管理通道 |
+| :--- | :--- | :--- |
+| **WebSSH + Mihomo** | 中兴 U60 Pro · MU5250 · B28 | WebSSH、原厂接口、Mihomo 控制 API |
+| **UFI-TOOLS + Mihomo** | 中兴 F50 · MU300 · B09 · UFI-TOOLS 4.1.5 | UFI 管理通道、原厂接口、Mihomo 控制 API |
+
+> [!IMPORTANT]
+> FlowDeck 接入已部署好服务的设备。首次 Root、刷机及设备端安装仍需通过电脑完成。
+> 安装了相同组件，不代表其他型号或固件已经兼容；具体写入能力还会校验设备身份、固件和服务布局。
+
+两种接入方式共享 Mihomo 管理体验，原厂管理与维护能力按各自适配情况提供。
+欢迎通过 [设备适配 Issue](https://github.com/AS9929/FlowDeck/issues/new?template=adapter.yml)
+提交新的设备组合与脱敏接口信息。
+
+## 开始使用
+
+1. **连接设备热点**：确认手机能够访问随身 Wi-Fi 的管理地址，设备端已运行对应管理服务和 Mihomo。
+2. **添加设备**：在“我的设备”中选择 WebSSH + Mihomo 或 UFI-TOOLS + Mihomo，填写地址、端口与对应凭据。
+3. **验证并保存**：完成设备身份和服务连接验证后，进入总览、Mihomo、设备或工具页面开始管理。
+
+WebSSH 密码／UFI 管理口令、Mihomo Secret、原厂网页密码是不同凭据，分别保存在本机钥匙串。
+Wi-Fi、短信等原厂功能可能需要另行验证原厂后台密码。
+
+没有设备时，可以主动开启**演示模式**体验页面与交互。演示数据不代表真实连接结果。
+
+<details>
+<summary><strong>常用策略、网络出口与本机数据</strong></summary>
+
+- 在 **Mihomo → 策略操作（…）→ 常用策略组** 中设置首页、小组件和快捷指令关注的策略组。
+  偏好按设备隔离；多组无法明确识别时，App 会提示选择。
+- 规则模式按请求分流，常用策略的选中节点不代表所有连接的实际出口。
+  手机 UDP 探测验证当前请求的往返与出口，不代表所有 UDP 流量均走代理。
+- 移除同一硬件的最后一条连接记录时，会清理其本机 Wi-Fi/APN 恢复副本、短信草稿和策略偏好，
+  不修改路由器上的设置。
+
+</details>
+
+## 构建与开发
+
+需要 **macOS、Xcode 26 和 XcodeGen**，最低部署目标为 **iOS 17**。
+普通 iOS 构建不需要 Android SDK、真实设备或私有凭据。
 
 ```sh
+git clone https://github.com/AS9929/FlowDeck.git
+cd FlowDeck
+brew install xcodegen
 xcodegen generate
-xcodebuild -project FlowDeck.xcodeproj -scheme FlowDeck \
-  -destination 'platform=iOS Simulator,name=iPhone 16e' build
-xcodebuild -project FlowDeck.xcodeproj -scheme FlowDeck \
-  -destination 'platform=iOS Simulator,name=iPhone 16e' \
-  -only-testing:FlowDeckTests test
-xcodebuild -project FlowDeck.xcodeproj -scheme FlowDeck \
-  -destination 'platform=iOS Simulator,name=iPhone 16e' \
-  -only-testing:FlowDeckUITests/NavigationTransitionTests test
+open FlowDeck.xcodeproj
 ```
 
-修改的 Swift 文件使用已有 `.swift-format`，例如 `xcrun swift-format lint --strict <文件路径>`。
-不要为了格式统一重排未修改文件。单元测试会导出实际生产脚本的 fixture；随后运行宿主故障注入：
+选择 `FlowDeck` Scheme 和 iPhone 模拟器运行。真机构建需要配置自己的签名身份；
+完整步骤、测试命令和 Android 桥接重建方法见 [开发指南](docs/Development.md)。
 
-```sh
-python3 Scripts/Tests/run_f50_transactions.py '<模拟器 App 数据容器>/Documents'
+### 为后续接入保留边界
+
+```mermaid
+flowchart TB
+    UI[SwiftUI 页面与交互] --> Services[业务服务与设备会话]
+    Services --> Capabilities[能力协议与后端注册表]
+    Services --> Mihomo[Mihomo 标准控制 API]
+    Capabilities --> WebSSH[WebSSH 适配器]
+    Capabilities --> UFI[UFI-TOOLS 适配器]
+    Capabilities -. 新增适配 .-> Future[其他管理后端]
 ```
 
-脚本只操作临时目录，不访问网络或真实设备。`Scripts/F50ConfigBridge/test_probe.sh` 是本机 DNS 报文验证，不发起网络请求。真机凭据不提供时相关测试明确跳过，不算通过；配置写入、升级、重启、
-断电恢复与手机热点实际联网需要独立验收。私有凭据不得加入源码、日志或 fixture。
+页面依赖能力协议，业务服务承载完整操作流程，适配器封装设备端协议。
+新增接入方式需要实现对应能力、兼容性检查和测试，再注册到 `BackendRegistry`；
+标准 Mihomo 页面可以继续复用。分层约定和目录职责见 [代码结构](docs/CodeStructure.md)。
 
-Debug 和 Release 均不携带历史首次部署二进制或离线规则数据库。
-F50 原生管理使用的 `F50ConfigBridge.dex` 保留完整 Java 源码和可重复校验脚本。
-历史首次部署载荷测试明确跳过，不能作为当前客户端安装能力的证明。
+CI 检查公开交付边界、Git 历史密钥、工程生成一致性、iOS 单元测试、宿主事务测试、Release 构建，
+以及 Android 桥接产物的源码重建一致性。现场凭据测试默认跳过，真实设备读写与热点联网需单独验收。
 
-## 后续适配
+## 文档与参与
 
-新增方式依次实现能力协议、客户端、兼容性与写入检查，再在 BackendRegistry 显式注册。
-公共 Mihomo 页面继续共享；相同能力优先复用业务服务，协议或交互不同才增加专属页面。
-未知 backendID 保留原记录并显示不可用，不回退到 WebSSH；能力目录也不能代替写入身份校验。
-具体分层规则见 [代码结构](docs/CodeStructure.md)。
+| 入口 | 内容 |
+| :--- | :--- |
+| [开发指南](docs/Development.md) | 环境、签名、构建、测试与资源生成 |
+| [代码结构](docs/CodeStructure.md) | 模块职责、会话与状态所有权、新后端扩展约定 |
+| [贡献指南](CONTRIBUTING.md) | 问题反馈、改动范围与提交验证 |
+| [安全政策](SECURITY.md) | 漏洞报告与敏感信息处理 |
+| [第三方许可](THIRD_PARTY.md) | 上游项目、资源出处和分发边界 |
+| [发布检查](docs/ReleaseChecklist.md) | 源码、资源与发布前验证 |
 
-本仓库以 FlowDeck 命名后的代码快照作为首次提交；此前的开发历史与验收资料保留在原私有项目中。
-开发与构建不依赖私有技术资料库。
+欢迎改进交互与可访问性、补充协议测试，或为新设备提供独立适配。
+反馈问题时请附上 App 版本、设备型号、固件与接入方式，并移除订阅、Secret、密码和设备标识。
 
-## 许可与参与
+## 致谢与许可
 
-自有源码与原创资源采用 [MIT](LICENSE)，第三方内容遵循 [各自许可证](THIRD_PARTY.md)。
-欢迎按 [贡献指南](CONTRIBUTING.md) 提交改进；安全问题请阅读 [安全政策](SECURITY.md)。
-首次 Root、刷机、设备端服务安装以及 App Store 上架需要独立验证，不属于本仓库的开源验收。
+感谢 [Mihomo](https://github.com/MetaCubeX/mihomo)、
+[WebSSH-u60pro](https://github.com/Jack-bin183/WebSSH-u60pro) 和
+[UFI-TOOLS](https://github.com/kanoqwq/UFI-TOOLS) 提供设备端能力与开放接口，
+以及 Simple Icons、Lobe Icons、flag-icons 的图标资源。
+
+FlowDeck 自有源码与原创资源采用 [MIT License](LICENSE)。
+第三方内容遵循 [各自许可证](THIRD_PARTY.md)，相关名称和商标归各自权利人。
+本仓库不分发设备固件、首次部署安装包、Mihomo 核心二进制或个人订阅。

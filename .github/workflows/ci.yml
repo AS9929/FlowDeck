@@ -56,6 +56,20 @@ jobs:
             -parallel-testing-enabled NO -only-testing:FlowDeckTests test
       - name: Host transaction tests
         run: |
+          # XCTest may shut down its simulator after finishing. Restore it before reading fixtures.
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+
+          simulator_id = os.environ['SIMULATOR_ID']
+          inventory = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', '--json']))
+          device = next(device for devices in inventory['devices'].values() for device in devices
+                        if device['udid'] == simulator_id)
+          if device['state'] == 'Shutdown':
+              subprocess.run(['xcrun', 'simctl', 'boot', simulator_id], check=True)
+          subprocess.run(['xcrun', 'simctl', 'bootstatus', simulator_id, '-b'], check=True)
+          PY
           APP_DATA=$(xcrun simctl get_app_container "$SIMULATOR_ID" org.flowdeck.app data)
           python3 Scripts/Tests/run_f50_transactions.py "$APP_DATA/Documents"
       - name: Release build
