@@ -5,7 +5,7 @@
 ## 报告方式
 
 请不要在公开 Issue、PR、截图或日志里披露可利用细节、订阅、密码、短信、IMEI、设备备份或真实网络地址。
-仓库公开并启用 Private vulnerability reporting 后，使用
+仓库已启用 GitHub Private vulnerability reporting，请使用
 [私密安全报告](https://github.com/AS9929/FlowDeck/security/advisories/new)。
 如果该入口不可用，可开一个仅写“请求安全联系渠道”的 Issue，等待维护者提供私密渠道；不要附漏洞细节。
 不承诺固定响应时限，也不要求为复现漏洞刷机或连接蜂窝公网管理端口。

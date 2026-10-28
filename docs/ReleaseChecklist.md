@@ -9,7 +9,7 @@
 - 在没有 `Config/Local.xcconfig` 的干净目录构建、测试；检查 App 与 Widget 使用同一组身份配置。
 - 从 Java 源码重建并比较桥接 dex；不得只核对预编译二进制的文件名。
 - 检查 Release 不含历史部署二进制、规则数据库或真实设备配置。
-- 仓库当前保持私有。确认公开时再启用 GitHub Private vulnerability reporting，验证 SECURITY.md 的入口。
+- 仓库已于 2026-10-28 公开并启用 GitHub Private vulnerability reporting；发布前确认该设置有效，并验证 SECURITY.md 的入口。
 - App Store 分发另行完成隐私清单与签名审核；模拟器结果不等于设备写入或商店验收。
 
 ## 首次公开的历史边界
