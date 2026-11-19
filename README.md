@@ -18,6 +18,7 @@
 <p align="center">
   <a href="#功能概览">功能概览</a> ·
   <a href="#设备兼容">设备兼容</a> ·
+  <a href="docs/DeviceSetup.md">设备部署指南</a> ·
   <a href="#开始使用">开始使用</a> ·
   <a href="#构建与开发">构建与开发</a> ·
   <a href="CONTRIBUTING.md">参与贡献</a>
@@ -83,6 +84,7 @@ iOS 26 使用 Liquid Glass，较早系统使用材质回退。未绑定、离线
 > [!IMPORTANT]
 > FlowDeck 接入已部署好服务的设备。首次 Root、刷机及设备端安装仍需通过电脑完成。
 > 安装了相同组件，不代表其他型号或固件已经兼容；具体写入能力还会校验设备身份、固件和服务布局。
+> [U60 Pro 和 F50 部署与验收指南](docs/DeviceSetup.md) 按机型列出固件要求、上游教程和连接检查。
 
 两种接入方式共享 Mihomo 管理体验，原厂管理与维护能力按各自适配情况提供。
 欢迎通过 [设备适配 Issue](https://github.com/AS9929/FlowDeck/issues/new?template=adapter.yml)
@@ -154,6 +156,7 @@ CI 检查公开交付边界、Git 历史密钥、工程生成一致性、iOS 单
 
 | 入口 | 内容 |
 | :--- | :--- |
+| [设备部署指南](docs/DeviceSetup.md) | U60 Pro 与 F50 的固件、上游部署教程及验收 |
 | [开发指南](docs/Development.md) | 环境、签名、构建、测试与资源生成 |
 | [代码结构](docs/CodeStructure.md) | 模块职责、会话与状态所有权、新后端扩展约定 |
 | [贡献指南](CONTRIBUTING.md) | 问题反馈、改动范围与提交验证 |
@@ -163,6 +166,8 @@ CI 检查公开交付边界、Git 历史密钥、工程生成一致性、iOS 单
 
 欢迎改进交互与可访问性、补充协议测试，或为新设备提供独立适配。
 反馈问题时请附上 App 版本、设备型号、固件与接入方式，并移除订阅、Secret、密码和设备标识。
+
+如果 FlowDeck 对你有帮助，欢迎在仓库右上角点个 **⭐ Star**，也欢迎分享给在用随身 Wi-Fi 的朋友。
 
 ## 致谢与许可
 
