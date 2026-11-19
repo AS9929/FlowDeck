@@ -90,8 +90,9 @@ iOS 26 使用 Liquid Glass，较早系统使用材质回退。未绑定、离线
 
 ## 开始使用
 
-可从 [GitHub Releases](https://github.com/AS9929/FlowDeck/releases/tag/v0.4.0) 下载 iPhone 真机 IPA，
-按发布页说明签名并旁加载，省去用 Xcode 编译的步骤。
+可从 [GitHub Releases](https://github.com/AS9929/FlowDeck/releases/tag/v0.4.0) 下载未签名的 iPhone IPA。
+已有适用证书和匹配描述文件的用户，推荐在 iPhone 上使用 [LCSign](https://www.sign.lc/) 签名安装。
+发布页也提供在电脑上使用 Apple 账户签名的步骤。
 
 1. **连接设备热点**：确认手机能够访问随身 Wi-Fi 的管理地址，设备端已运行对应管理服务和 Mihomo。
 2. **添加设备**：在“我的设备”中选择 WebSSH + Mihomo 或 UFI-TOOLS + Mihomo，填写地址、端口与对应凭据。
