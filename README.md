@@ -74,6 +74,19 @@ iOS 26 使用 Liquid Glass，较早系统使用材质回退。未绑定、离线
 
 ## 设备兼容
 
+<table>
+  <tr>
+    <td align="center" width="50%"><strong>中兴 U60 Pro（MU5250）</strong></td>
+    <td align="center" width="50%"><strong>中兴 F50（MU300）</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://oss.ztedevices.com/prod/cn/2025/07/20250728323.png?x-oss-process=image/resize,w_260" width="240" alt="中兴 U60 Pro 外观"></td>
+    <td align="center"><img src="https://oss.ztedevices.com/prod/cn/2023/11/20231127309.png" width="240" alt="中兴 F50 外观"></td>
+  </tr>
+</table>
+
+外观图来自中兴官网。[U60 Pro 产品页](https://www.ztedevices.com/cn/product/%E4%B8%AD%E5%85%B4u60pro-5g%E9%9A%8F%E8%BA%ABwifi/) · [F50 产品页](https://www.ztedevices.com/cn/product/zte-f50-5g-ufi/)
+
 兼容性以 **设备型号、固件、接入方式和服务布局** 的组合为单位。
 
 | 接入方式 | 当前验证组合 | 管理通道 |
